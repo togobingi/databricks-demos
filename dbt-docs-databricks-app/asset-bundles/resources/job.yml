@@ -1,0 +1,48 @@
+resources:
+  sql_warehouses:
+      analytics_warehouse:
+        name: "dbt SQL Warehouse"
+        cluster_size: "Medium"
+        auto_stop_mins: 10
+        enable_serverless_compute: true
+  jobs:
+    dbt_docs_test:
+      name: dbt docs test
+      tasks:
+        - task_key: dbt-test
+          dbt_task:
+            project_directory: ${var.dbt_project_directory}
+            commands:
+              - dbt deps
+              - dbt run --target-path  ${var.dbt_target_path}
+              - dbt docs generate --target-path ${var.dbt_target_path}
+            schema: dbdemos_dbt_retail
+            warehouse_id:  ${resources.sql_warehouses.analytics_warehouse.id}
+            catalog: main
+            source: WORKSPACE
+          environment_key: Default
+      queue:
+        enabled: true
+      environments:
+        - environment_key: Default
+          spec:
+            client: "2"
+            dependencies:
+              - dbt-databricks>=1.0.0,<2.0.0
+      performance_target: PERFORMANCE_OPTIMIZED
+
+  apps:
+    dbt_docs_apps:
+      name: "dbt-docs-app"
+      description: "The app which deploys the dbt docs application"
+
+      # The location of the source code for the app.
+      source_code_path:  ${var.dbt_target_path}
+
+      # The resources which this app have an access to.
+      resources:
+        - name: "app-job"
+          description: "A job for the app to be able to work with"
+          job:
+            id: ${resources.jobs.dbt_docs_test.id}
+            permission: "CAN_MANAGE_RUN"

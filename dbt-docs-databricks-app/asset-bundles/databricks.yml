@@ -1,0 +1,21 @@
+bundle:
+  name: databricks_app
+
+include:
+  - resources/*.yml
+
+variables:
+  dbt_target_path:
+    description: "Target path for dbt docs"
+    default: "[DBT-TARGET-PATH]"
+  dbt_project_directory:
+    description: "DBT Project Directory"
+    default: "[DBT-PROJECT-DIRECTORY]"
+  
+#workspace:
+#  host: https://myworkspace.databricks.com
+
+targets:
+  dev:
+    default: true
+    mode: development
