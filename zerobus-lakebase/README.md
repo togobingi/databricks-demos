@@ -12,10 +12,25 @@ Zerobus Ingest enables near real-time data ingestion into Delta tables via **gRP
 ## 1. Create Target Table
 
 ```sql
-CREATE TABLE main.default.air_quality (
-    device_name STRING,
-    temp INT,
-    humidity LONG
+
+CREATE TABLE CATALOG.SCHEMA.trading_events (
+  event_id STRING,
+  timestamp_utc TIMESTAMP,
+  instrument_isin STRING,
+  instrument_name STRING,
+  venue STRING,
+  order_type STRING,
+  side STRING,
+  quantity INT,
+  price STRING,
+  order_status STRING,
+  filled_quantity INT,
+  fill_price DOUBLE,
+  participant_id STRING,
+  latency_ms INT,
+  flag_suspicious BOOLEAN,
+  temp INT, 
+  humidity LONG
 );
 ```
 
@@ -59,10 +74,44 @@ stream = sdk.create_stream(
 )
 
 try:
-    for i in range(100):
-        record = {"device_name": f"sensor-{i}", "temp": 20 + i % 15, "humidity": 50 + i % 40}
-        offset = stream.ingest_record_offset(record)
-    stream.wait_for_offset(offset)
+    from datetime import datetime, timedelta
+    import random
+    import uuid
+
+    venues = ["XETRA", "FRA", "STU"]
+    order_types = ["LIMIT", "MARKET"]
+    sides = ["BUY", "SELL"]
+    order_statuses = ["NEW", "PARTIALLY_FILLED", "FILLED", "CANCELLED"]
+    instrument_isins = ["DE000BASF111", "DE000AAPL123", "DE000GOOG456"]
+    instrument_names = ["BASF", "APPLE", "GOOGLE"]
+    participant_ids = ["P1", "P2", "P3"]
+
+    base_time = datetime.utcnow()
+
+    for i in range(1000):
+        record_dict = {
+            "event_id": str(uuid.uuid4()),
+            "timestamp_utc": int((base_time + timedelta(seconds=i)).timestamp() * 1_000_000),
+            "instrument_isin": random.choice(instrument_isins),
+            "instrument_name": random.choice(instrument_names),
+            "venue": random.choice(venues),
+            "order_type": random.choice(order_types),
+            "side": random.choice(sides),
+            "quantity": random.randint(1, 1000),
+            "price": str(round(random.uniform(10, 1000), 2)),
+            "order_status": random.choice(order_statuses),
+            "filled_quantity": random.randint(0, 1000),
+            "fill_price": round(random.uniform(10, 1000), 2),
+            "participant_id": random.choice(participant_ids),
+            "latency_ms": random.randint(1, 100),
+            "flag_suspicious": random.choice([True, False]),
+            "temp": random.randint(15, 35),
+            "humidity": random.randint(30, 90)
+        }
+        offset = stream.ingest_record_offset(record_dict)
+
+        # Optional: Wait for durability confirmation
+        stream.wait_for_offset(offset)
 finally:
     stream.close()
 ```
