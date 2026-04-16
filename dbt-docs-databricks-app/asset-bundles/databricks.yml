@@ -7,10 +7,16 @@ include:
 variables:
   dbt_target_path:
     description: "Target path for dbt docs"
-    default: "[DBT-TARGET-PATH]"
+    default: "/databricks-apps/"
   dbt_project_directory:
     description: "DBT Project Directory"
     default: "[DBT-PROJECT-DIRECTORY]"
+  schema:
+    description: "Specify the schema for dbt models"
+    default: "default"
+  catalog:
+    description: "Specify the Databricks catalog name"
+    default: "main"
   
 #workspace:
 #  host: https://myworkspace.databricks.com
