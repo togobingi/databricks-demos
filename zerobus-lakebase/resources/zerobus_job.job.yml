@@ -1,0 +1,22 @@
+resources:
+  jobs:
+    zerobus_job:
+      name: zerobus_job
+      queue:
+        enabled: true
+
+      tasks:
+        - task_key: zerobus_producer
+          notebook_task:
+            notebook_path: ../src/01_zerobus_producer.ipynb
+        - task_key: enable_cdf
+          depends_on:
+            - task_key: zerobus_producer
+          notebook_task:
+            notebook_path: ../src/02_cdf_stream.ipynb
+      trigger:
+        pause_status: PAUSED
+        # Run this job every day, exactly one day from the last run; see https://docs.databricks.com/api/workspace/jobs/create#trigger
+        periodic:
+          interval: 1
+          unit: DAYS
