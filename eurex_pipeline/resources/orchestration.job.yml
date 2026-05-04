@@ -1,0 +1,30 @@
+resources:
+  jobs:
+    End_to_End_Workflow:
+      name: End-to-End Workflow
+      tasks:
+        - task_key: Eurex_ETL_Pipeline
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.eurex_daily_stats_pipeline.id}
+            full_refresh: false
+        - task_key: dbt-gold
+          depends_on:
+            - task_key: Eurex_ETL_Pipeline
+          dbt_task:
+            project_directory: ../eurex_dbt/
+            commands:
+              - dbt build
+            schema: default
+            warehouse_id: 12345697ry78
+            catalog: main
+            source: WORKSPACE
+          environment_key: dbt-default
+      queue:
+        enabled: true
+      environments:
+        - environment_key: dbt-default
+          spec:
+            dependencies:
+              - dbt-databricks>=1.0.0,<2.0.0
+            environment_version: "5"
+      performance_target: PERFORMANCE_OPTIMIZED

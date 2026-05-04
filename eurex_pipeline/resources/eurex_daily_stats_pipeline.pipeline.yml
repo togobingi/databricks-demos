@@ -1,0 +1,23 @@
+resources:
+  pipelines:
+    eurex_daily_stats_pipeline:
+      name: Eurex Daily Stats Pipeline
+      configuration:
+        "dirty_rows": "('Product Settle Type','--')"
+      libraries:
+        - glob:
+            include: /Workspace/Users//your.email@example.com/.bundle/${bundle.name}/${bundle.target}/src/01_bronze/**
+        - glob:
+            include: /Workspace/Users//your.email@example.com/.bundle/${bundle.name}/${bundle.target}/src/02_silver/**
+        - glob:
+            include: /Workspace/Users//your.email@example.com/.bundle/${bundle.name}/${bundle.target}/src/03_gold/**
+      catalog: main
+      schema: default
+      channel: CURRENT
+      continuous: false
+      environment:
+        dependencies:
+          - xlrd>=2.0.1
+      photon: true
+      root_path: ../src
+      serverless: true

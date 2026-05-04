@@ -1,0 +1,22 @@
+
+version: 2
+
+#### SOURCES #####
+sources:
+  - name: sdp_pipeline # source name
+    database: fevm_gcp_billing # Unity Catalog catalog name
+    schema: default # Unity Catalog schema name.
+    tables:
+      - name: gold_eurex_product_performance # Actual table name from UC
+
+models:
+  - name: gold_eurex_top_movers
+    description: "'Top 20 products per day by daily volume EUR.'"
+    columns:
+      - name: report_date
+        description: "The date when the entry was recorded"
+        
+      - name: product_code
+        description: "The code for the financial instituition"
+        data_tests:
+          - not_null
