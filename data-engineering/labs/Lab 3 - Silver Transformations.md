@@ -30,7 +30,7 @@ We could simply add a filter to our code; However to ensure we implement [DRY](h
      WHERE product_code NOT IN ${bad_rows} -- OR AND product_code NOT IN ${bad_rows}
  ```
 
-![bad-rows](/labs/artifacts/screenshots/bad_rows.png)
+![bad-rows](/data-engineering/labs/artifacts/screenshots/bad_rows.png)
 
 ### Append the view names with your name 
 Before running the pipeline, make sure you append the view names with your name as you did in lab 2. Then, click on **Run pipeline** on the top right, and you should see the new materialised silver views created in the UI.
@@ -65,7 +65,7 @@ Data quality expectations prevent bad rows from reaching the Silver table and ma
 
 > 💡 After running the pipeline, click on the Silver table node in the pipeline UI to see the **Expectations** column and then the panel. It shows how many rows passed and failed each expectation. 
 
-![Expectations](/labs/artifacts/screenshots/expectations.png)
+![Expectations](/data-engineering/labs/artifacts/screenshots/expectations.png)
 
 
 ## What Happens Next?

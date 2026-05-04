@@ -77,7 +77,7 @@ This checks that dbt can find your profile and successfully connect to Databrick
 ## 7) Copy source code from the repo into your local files
 In this repo under `eurex_pipeline/eurex_dbt/models/` copy the contents of both files `gold_eurex_top_movers` and `schema.yml` and paste them in your project with the same file names. Delete the other files which are within the models/ directory:
 
-![dbt-proj](/labs/artifacts/screenshots/dbt-sturcture.png)
+![dbt-proj](/data-engineering/labs/artifacts/screenshots/dbt-sturcture.png)
 
 ## 8) Run the dbt project
 

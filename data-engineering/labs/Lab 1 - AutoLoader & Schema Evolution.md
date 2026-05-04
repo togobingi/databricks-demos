@@ -42,7 +42,7 @@ Each attendee gets their own volume to avoid file conflicts.
 1. Navigate to **Catalog -> Schema** 
 2. You should see a volume within your schema
 
-![uc-UI](/labs/artifacts/screenshots/uc-catalog.png)
+![uc-UI](/data-engineering/labs/artifacts/screenshots/uc-catalog.png)
   
 
 

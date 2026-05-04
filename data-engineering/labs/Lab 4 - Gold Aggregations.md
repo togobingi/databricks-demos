@@ -20,7 +20,7 @@ But first, let us run the full end-to-end Lakeflow Spark Declarative Pipeline an
 
 1. In the pipeline UI, click on **Run pipeline** 
 2. Watch the pipeline DAG update in real time — Bronze turns green first, then Silver, then Gold
-![sdp-dag](/labs/artifacts/screenshots/sdp-dag.png)
+![sdp-dag](/data-engineering/labs/artifacts/screenshots/sdp-dag.png)
 
 
 3. Once complete, query your new Gold table:

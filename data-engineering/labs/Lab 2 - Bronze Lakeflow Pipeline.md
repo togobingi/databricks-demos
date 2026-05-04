@@ -49,7 +49,7 @@ To create a new ETL pipeline using the Lakeflow Pipelines Editor, follow these s
 
 2. At the top, you can give your pipeline a unique name such as "Eurex ETL pipeline". To the right of the pipeline name, you will see the default `catalog` and `schema` that have been automatically selected for your pipeline. You can change these if required to the catalog and schema you will use.
 
-![pipeline-UI](/labs/artifacts/screenshots/sdp-ui.png)
+![pipeline-UI](/data-engineering/labs/artifacts/screenshots/sdp-ui.png)
 
 3. Click on the pipeline **Settings** and add `xlrd>=2.0.1` under the **Pipeline environment -> Dependencies -> edit Environment** section. Click save We need this to be able to process `xls` files.
 ---
@@ -64,7 +64,7 @@ To create a new ETL pipeline using the Lakeflow Pipelines Editor, follow these s
     - 03_gold
 
 Now your project structure should look like this:
-![sdp-folder-struc](/labs/artifacts/screenshots/sdp-folder-structure.png)
+![sdp-folder-struc](/data-engineering/labs/artifacts/screenshots/sdp-folder-structure.png)
 
 4. Now click on the `+` icon next to the `01_bronze` folder and create a new file called `bronze_eurex_daily_stats_pipeline.py`. 
    - From this repo copy the code from this path `eurex_pipeline/src/01_bronze/bronze_eurex_daily_stats_pipeline.py` and paste it in the new file you just created in the UI.
@@ -80,7 +80,7 @@ Now your project structure should look like this:
    - As we might be sharing the same schema in the workshop, you are expected to append the view's/table name with your name so you can find it easily in Unity Catalog.
   
 7. To run the pipeline, click on the `Run pipeline` button on the top right 
-   ![bronze-run](/labs/artifacts/screenshots/bronze-run.png)
+   ![bronze-run](/data-engineering/labs/artifacts/screenshots/bronze-run.png)
 
 8. (**Optional**) Open the the SQL Editor in the left side bar, run the following query to view the rows in the file you created:
 
