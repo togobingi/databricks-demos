@@ -1,0 +1,10 @@
+product_id,product_name,traded_contracts,volume_eur,asset_class
+ODAX,DAX Option,131000,2620000000,Equity Derivatives
+FDAX,DAX Future,102000,2040000000,Equity Derivatives
+OESX,EURO STOXX 50 Option,198000,2970000000,Index Derivatives
+FESX,EURO STOXX 50 Future,205000,3075000000,Index Derivatives
+OPT1,TecDAX Option,29000,435000000,Equity Derivatives
+FUT1,TecDAX Future,31000,465000000,Equity Derivatives
+OGBL,Bund Option,51000,1020000000,Fixed Income
+FGBL,Bund Future,118000,2360000000,Fixed Income
+CONF,Swiss Govt Bond Future,22000,440000000,Fixed Income
