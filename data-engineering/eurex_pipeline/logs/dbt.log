@@ -1,0 +1,72 @@
+[0m18:08:50.105813 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113ee3ad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113f10f10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113f116d0>]}
+
+
+============================== 18:08:50.109684 | 757eb8b3-5ff0-4d9a-ae2a-629a66496808 ==============================
+[0m18:08:50.109684 [info ] [MainThread]: Running with dbt=1.10.9
+[0m18:08:50.110100 [debug] [MainThread]: running dbt with arguments {'use_experimental_parser': 'False', 'profiles_dir': '/Users/tobi.wole/.dbt', 'warn_error': 'None', 'indirect_selection': 'eager', 'log_path': 'logs', 'log_cache_events': 'False', 'write_json': 'True', 'printer_width': '80', 'version_check': 'True', 'no_print': 'None', 'quiet': 'False', 'partial_parse': 'True', 'introspect': 'True', 'log_format': 'default', 'fail_fast': 'False', 'static_parser': 'True', 'debug': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True', 'cache_selected_only': 'False', 'use_colors': 'True', 'invocation_command': 'dbt debug', 'target_path': 'None', 'empty': 'None'}
+[0m18:08:50.123896 [info ] [MainThread]: dbt version: 1.10.9
+[0m18:08:50.124186 [info ] [MainThread]: python version: 3.11.8
+[0m18:08:50.124384 [info ] [MainThread]: python path: /Users/tobi.wole/Documents/playground/myenv/bin/python3
+[0m18:08:50.124549 [info ] [MainThread]: os info: macOS-26.4-arm64-arm-64bit
+[0m18:08:50.597760 [debug] [MainThread]: Spark adapter: Setting pyhive.hive logging to ERROR
+[0m18:08:50.598154 [debug] [MainThread]: Spark adapter: Setting thrift.transport logging to ERROR
+[0m18:08:50.598344 [debug] [MainThread]: Spark adapter: Setting thrift.protocol logging to ERROR
+[0m18:08:51.604160 [info ] [MainThread]: Using profiles dir at /Users/tobi.wole/.dbt
+[0m18:08:51.604516 [info ] [MainThread]: Using profiles.yml file at /Users/tobi.wole/.dbt/profiles.yml
+[0m18:08:51.604746 [info ] [MainThread]: Using dbt_project.yml file at /Users/tobi.wole/Documents/playground/statistix-de/eurex_pipeline/dbt_project.yml
+[0m18:08:51.604976 [error] [MainThread]: Encountered an error:
+Internal Error
+  Profile should not be None if loading profile completed
+[0m18:08:51.638330 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 1.5972532, "process_in_blocks": "0", "process_kernel_time": 2.916871, "process_mem_max_rss": "223707136", "process_out_blocks": "0", "process_user_time": 2.080837}
+[0m18:08:51.638787 [debug] [MainThread]: Command `dbt debug` failed at 18:08:51.638722 after 1.60 seconds
+[0m18:08:51.639024 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113ee3f90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1201fba50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104769790>]}
+[0m18:08:51.639278 [debug] [MainThread]: Flushing usage events
+[0m18:08:52.059938 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m18:09:38.444751 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11256d490>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1126140d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112615a50>]}
+
+
+============================== 18:09:38.448223 | 08152225-8f09-4ce9-85c0-1a3fee5a8d22 ==============================
+[0m18:09:38.448223 [info ] [MainThread]: Running with dbt=1.10.9
+[0m18:09:38.448622 [debug] [MainThread]: running dbt with arguments {'indirect_selection': 'eager', 'log_cache_events': 'False', 'use_colors': 'True', 'printer_width': '80', 'empty': 'None', 'no_print': 'None', 'invocation_command': 'dbt debug', 'write_json': 'True', 'debug': 'False', 'send_anonymous_usage_stats': 'True', 'log_format': 'default', 'target_path': 'None', 'version_check': 'True', 'quiet': 'False', 'warn_error': 'None', 'static_parser': 'True', 'profiles_dir': '/Users/tobi.wole/.dbt', 'use_experimental_parser': 'False', 'log_path': 'logs', 'fail_fast': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False'}
+[0m18:09:38.462636 [info ] [MainThread]: dbt version: 1.10.9
+[0m18:09:38.462913 [info ] [MainThread]: python version: 3.11.8
+[0m18:09:38.463099 [info ] [MainThread]: python path: /Users/tobi.wole/Documents/playground/myenv/bin/python3
+[0m18:09:38.463261 [info ] [MainThread]: os info: macOS-26.4-arm64-arm-64bit
+[0m18:09:38.938775 [debug] [MainThread]: Spark adapter: Setting pyhive.hive logging to ERROR
+[0m18:09:38.939128 [debug] [MainThread]: Spark adapter: Setting thrift.transport logging to ERROR
+[0m18:09:38.939313 [debug] [MainThread]: Spark adapter: Setting thrift.protocol logging to ERROR
+[0m18:09:39.721463 [info ] [MainThread]: Using profiles dir at /Users/tobi.wole/.dbt
+[0m18:09:39.721812 [info ] [MainThread]: Using profiles.yml file at /Users/tobi.wole/.dbt/profiles.yml
+[0m18:09:39.722073 [info ] [MainThread]: Using dbt_project.yml file at /Users/tobi.wole/Documents/playground/statistix-de/eurex_pipeline/dbt_project.yml
+[0m18:09:39.722301 [error] [MainThread]: Encountered an error:
+Internal Error
+  Profile should not be None if loading profile completed
+[0m18:09:39.726510 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 1.3509656, "process_in_blocks": "0", "process_kernel_time": 2.675744, "process_mem_max_rss": "223723520", "process_out_blocks": "0", "process_user_time": 2.29347}
+[0m18:09:39.726827 [debug] [MainThread]: Command `dbt debug` failed at 18:09:39.726774 after 1.35 seconds
+[0m18:09:39.727034 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x102fc9790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112614dd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112615c10>]}
+[0m18:09:39.727257 [debug] [MainThread]: Flushing usage events
+[0m18:09:40.135475 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m18:10:11.442342 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111ee3650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111ee9090>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111eea790>]}
+
+
+============================== 18:10:11.447518 | 0ef17dfe-54f5-4f4d-9713-a0dc7eb5b5ca ==============================
+[0m18:10:11.447518 [info ] [MainThread]: Running with dbt=1.10.9
+[0m18:10:11.448338 [debug] [MainThread]: running dbt with arguments {'use_colors': 'True', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_format': 'default', 'introspect': 'True', 'cache_selected_only': 'False', 'invocation_command': 'dbt debug --profiles-dir /Users/tobi.wole/.dbt/', 'empty': 'None', 'fail_fast': 'False', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'partial_parse': 'True', 'write_json': 'True', 'version_check': 'True', 'no_print': 'None', 'target_path': 'None', 'printer_width': '80', 'debug': 'False', 'log_path': 'logs', 'profiles_dir': '/Users/tobi.wole/.dbt/', 'use_experimental_parser': 'False', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'warn_error': 'None'}
+[0m18:10:11.468023 [info ] [MainThread]: dbt version: 1.10.9
+[0m18:10:11.468363 [info ] [MainThread]: python version: 3.11.8
+[0m18:10:11.468568 [info ] [MainThread]: python path: /Users/tobi.wole/Documents/playground/myenv/bin/python3
+[0m18:10:11.468863 [info ] [MainThread]: os info: macOS-26.4-arm64-arm-64bit
+[0m18:10:11.963135 [debug] [MainThread]: Spark adapter: Setting pyhive.hive logging to ERROR
+[0m18:10:11.963485 [debug] [MainThread]: Spark adapter: Setting thrift.transport logging to ERROR
+[0m18:10:11.963669 [debug] [MainThread]: Spark adapter: Setting thrift.protocol logging to ERROR
+[0m18:10:12.804709 [info ] [MainThread]: Using profiles dir at /Users/tobi.wole/.dbt/
+[0m18:10:12.805051 [info ] [MainThread]: Using profiles.yml file at /Users/tobi.wole/.dbt/profiles.yml
+[0m18:10:12.805225 [info ] [MainThread]: Using dbt_project.yml file at /Users/tobi.wole/Documents/playground/statistix-de/eurex_pipeline/dbt_project.yml
+[0m18:10:12.805435 [error] [MainThread]: Encountered an error:
+Internal Error
+  Profile should not be None if loading profile completed
+[0m18:10:12.809643 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 1.4509495, "process_in_blocks": "0", "process_kernel_time": 2.63258, "process_mem_max_rss": "221495296", "process_out_blocks": "0", "process_user_time": 2.267283}
+[0m18:10:12.810167 [debug] [MainThread]: Command `dbt debug` failed at 18:10:12.810068 after 1.45 seconds
+[0m18:10:12.810408 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x102cfd9d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x117e2ba10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111f116d0>]}
+[0m18:10:12.810641 [debug] [MainThread]: Flushing usage events
+[0m18:10:13.204967 [debug] [MainThread]: An error was encountered while trying to flush usage events

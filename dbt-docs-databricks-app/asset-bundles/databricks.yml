@@ -7,13 +7,19 @@ include:
 variables:
   dbt_target_path:
     description: "Target path for dbt docs"
-    default: "[DBT-TARGET-PATH]"
+    default: "/Workspace/Users/your.email@example.com/databricks-demos/dbt-docs-databricks-app/databricks-apps"
   dbt_project_directory:
     description: "DBT Project Directory"
-    default: "[DBT-PROJECT-DIRECTORY]"
+    default: "/Workspace/Users/your.email@example.com/jaffle-shop"
+  schema:
+    description: "Specify the schema for dbt models"
+    default: "default"
+  catalog:
+    description: "Specify the Databricks catalog name"
+    default: "dbt"
   
-#workspace:
-#  host: https://myworkspace.databricks.com
+workspace:
+  host: https://myworkspace.databricks.com/
 
 targets:
   dev:
