@@ -49,7 +49,7 @@ To create a new ETL pipeline using the Lakeflow Pipelines Editor, follow these s
 
 2. At the top, you can give your pipeline a unique name such as "Eurex ETL pipeline". To the right of the pipeline name, you will see the default `catalog` and `schema` that have been automatically selected for your pipeline. You can change these if required to the catalog and schema you will use.
 
-![pipeline-UI](/data-engineering/labs/artifacts/screenshots/sdp-ui.png)
+![pipeline-UI](/data-engineering/labs/artifacts/screenshots/sdp-UI.png)
 
 3. Click on the pipeline **Settings** and add `xlrd>=2.0.1` under the **Pipeline environment -> Dependencies -> edit Environment** section. Click save We need this to be able to process `xls` files.
 ---
