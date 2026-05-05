@@ -17,14 +17,46 @@ Choose how you want to work on this project:
 
 (c) With command line tools, see https://docs.databricks.com/dev-tools/cli/databricks-cli.html
 
-If you're developing with an IDE, dependencies for this project should be installed using uv:
 
-*  Make sure you have the UV package manager installed.
-   It's an alternative to tools like pip: https://docs.astral.sh/uv/getting-started/installation/.
-*  Run `uv sync --dev` to install the project's dependencies.
+The steps below assumes you have the Databricks CLI installed (c). If you don't, you can follow option a or b above to deploy the assets to your workspace.
+
+To run this project you need to do 3 things:
+- Clone this repo to your local machine 
+- Update the `databricks.yml` file with your configurations
+- Upload the sample dataset to a volume, then deploy the assets to Databricks
 
 
-# Using this project using the CLI
+# 1) Update the default values in the databricks.yml file
+
+In the `databricks.yml` file, update the variables with the right one in your workspace
+
+```yaml
+    warehouse_id:
+        lookup:
+            warehouse: 'Serverless Starter Warehouse' # Add the name of the SQL warehouse you have access to in your Databricks workspace
+
+    #####
+    workspace:
+      host: https://WORKSPACE-ID.gcp.databricks.com/
+     variables:
+      catalog: main # update your caralog name
+      schema: default # update your schema name
+      volume: volume # update your volume name
+
+    ###
+     root_path: /Workspace/Users/YOUR.EMAIL@example.com/.bundle/${bundle.name}/${bundle.target}
+     user_name: YOUR.EMAIL@example.com
+
+
+```
+
+# 2) Upload the sample dataset to your volume
+
+Download the `csv` file from this path **/`labs/artifacts/data/eurex_daily_stats.csv`** and upload it to the volume you defined above. 
+
+Ensure that is the **only** file in the volume.
+
+# 3) Using this project using the CLI
 
 The Databricks workspace and IDE extensions provide a graphical interface for working
 with this project. It's also possible to interact with it directly using the CLI:
@@ -36,6 +68,8 @@ with this project. It's also possible to interact with it directly using the CLI
 
 2. To deploy a development copy of this project, type:
     ```
+    $ databricks bundle validate --target dev
+
     $ databricks bundle deploy --target dev
     ```
     (Note that "dev" is the default target, so the `--target` parameter
@@ -43,12 +77,7 @@ with this project. It's also possible to interact with it directly using the CLI
 
     This deploys everything that's defined for this project.
 
-3. Similarly, to deploy a production copy, type:
-   ```
-   $ databricks bundle deploy --target prod
-   ```
-
-4. To run a job or pipeline, use the "run" command:
+3. To run a job or pipeline, use the "run" command:
    ```
    $ databricks bundle run
    ```

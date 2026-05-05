@@ -14,6 +14,11 @@ variables:
     description: The catalog to use
   schema:
     description: The schema to use
+  volume:
+    description: Volume to use
+  warehouse_id:
+    lookup:
+      warehouse: 'Serverless Starter Warehouse' # Add the name of the SQL warehouse you have access to in your Databricks workspace
 
 targets:
   dev:
@@ -24,19 +29,20 @@ targets:
     mode: development
     default: true
     workspace:
-      host: https://workspace-id.8.gcp.databricks.com/
+      host: https://WORKSPACE-ID.gcp.databricks.com/
     variables:
-      catalog: main
-      schema: dev
+      catalog: main # update your caralog name
+      schema: default # update your schema name
+      volume: volume # update your volume name
   prod:
     mode: production
     workspace:
-      host: https://workspace-id.8.gcp.databricks.com/
+      host: https://WORKSPACE-ID.gcp.databricks.com/
       # We explicitly deploy to /Workspace/Users/tobi.wole@databricks.com to make sure we only have a single copy.
-      root_path: /Workspace/Users/your.email@example.com/.bundle/${bundle.name}/${bundle.target}
+      root_path: /Workspace/Users/YOUR.EMAIL@example.com/.bundle/${bundle.name}/${bundle.target}
     variables:
       catalog: main
       schema: prod
     permissions:
-      - user_name: your.email@example.com
+      - user_name: YOUR.EMAIL@example.com
         level: CAN_MANAGE

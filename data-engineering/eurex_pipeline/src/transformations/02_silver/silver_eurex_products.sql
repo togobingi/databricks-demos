@@ -1,5 +1,5 @@
 -- Silver Layer: Deduplicated product dimension
-CREATE OR REFRESH MATERIALIZED VIEW <YOUR_NAME>_silver_eurex_products (
+CREATE OR REFRESH MATERIALIZED VIEW silver_eurex_products (
   CONSTRAINT valid_product_code EXPECT (product_code IS NOT NULL) ON VIOLATION DROP ROW
 )
 COMMENT 'Deduplicated product dimension table from Eurex daily statistics.'
@@ -10,5 +10,7 @@ SELECT DISTINCT
   product_group,
   sub_category,
   category
-FROM <YOUR_NAME>_eurex_daily_stats;
+FROM eurex_daily_stats
+  WHERE product_code NOT IN ${bad_rows}
+  AND sub_category NOT IN ('Sum');
 

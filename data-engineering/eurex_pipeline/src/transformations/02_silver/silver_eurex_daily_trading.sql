@@ -1,8 +1,9 @@
 -- Silver Layer: Cleaned daily trading fact table
-CREATE OR REFRESH MATERIALIZED VIEW <YOUR_NAME>_silver_eurex_daily_trading (
+CREATE OR REFRESH MATERIALIZED VIEW silver_eurex_daily_trading (
+  CONSTRAINT valid_traded_contracts EXPECT (traded_contracts >= 0),
   CONSTRAINT valid_volume_eur EXPECT (volume_eur >= 0),
   CONSTRAINT valid_report_date EXPECT (report_date IS NOT NULL) ON VIOLATION FAIL UPDATE
-)
+  )
 COMMENT 'Cleaned daily trading fact table with only rows containing trading activity.'
 AS
 SELECT
@@ -26,9 +27,10 @@ SELECT
   nanvl(volume_eur_month, null) AS volume_eur_month,
   nanvl(volume_eur_year, null) AS volume_eur_year,
   nanvl(open_interest_eur_prev_day, null) AS open_interest_eur_prev_day
-FROM <YOUR-NAME>_eurex_daily_stats
+FROM eurex_daily_stats
 WHERE (NOT isnan(traded_contracts) OR NOT isnan(traded_contracts_month)
        OR NOT isnan(traded_contracts_year) OR NOT isnan(volume_eur)
        OR NOT isnan(volume_eur_month) OR NOT isnan(volume_eur_year)
        OR NOT isnan(open_interest_prev_day) OR NOT isnan(open_interest_eur_prev_day))
-;
+  AND product_code NOT IN ${bad_rows}
+  AND sub_category NOT IN ('Sum')
