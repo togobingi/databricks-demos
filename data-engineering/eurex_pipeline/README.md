@@ -28,7 +28,7 @@ To run this project you need to do 3 things:
 
 # 1) Update the default values in the databricks.yml file
 
-In the `databricks.yml` file, update the variables with the right one in your workspace
+In the **`databricks.yml`** file, update the variables with the right one in your workspace
 
 ```yaml
     warehouse_id:
@@ -45,7 +45,7 @@ In the `databricks.yml` file, update the variables with the right one in your wo
 
 ```
 
-Also update the `YOUR_USERNAME` part of the table name in In the `eurex_dbt/models/schema.yml` file so dbt can read the output of the Spark Declarative Pipeline. 
+Also update the `YOUR_USERNAME` part of the table name in In the **`eurex_dbt/models/schema.yml`** file so dbt can read the output of the Spark Declarative Pipeline. 
 
 If your email is `abc.123@example.com`, then your username is going to be `abc_123`.
 
@@ -56,7 +56,7 @@ If your email is `abc.123@example.com`, then your username is going to be `abc_1
         - name: YOUR_USERNAME_gold_eurex_product_performance # Actual table name from UC
 ```
 
-In the `eurex_dbt/models/gold_eurex_top_movers.sql` file update the `YOUR_USERNAME` part of the table name.
+In the **`eurex_dbt/models/gold_eurex_top_movers.sql`** file update the `YOUR_USERNAME` part of the table name.
 
 ```sql
      FROM {{ source('sdp_pipeline','YOUR_USERNAME_gold_eurex_product_performance') }}
