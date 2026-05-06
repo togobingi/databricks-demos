@@ -43,11 +43,23 @@ In the `databricks.yml` file, update the variables with the right one in your wo
       schema: default # update your schema name
       volume: volume # update your volume name
 
-    ###
-     root_path: /Workspace/Users/YOUR.EMAIL@example.com/.bundle/${bundle.name}/${bundle.target}
-     user_name: YOUR.EMAIL@example.com
+```
 
+Also update the `YOUR_USERNAME` part of the table name in In the `eurex_dbt/models/schema.yml` file so dbt can read the output of the Spark Declarative Pipeline. 
 
+If your email is `abc.123@example.com`, then your username is going to be `abc_123`.
+
+```yaml
+    sources:
+        ...
+        tables:
+        - name: YOUR_USERNAME_gold_eurex_product_performance # Actual table name from UC
+```
+
+In the `eurex_dbt/models/gold_eurex_top_movers.sql` file update the `YOUR_USERNAME` part of the table name.
+
+```sql
+     FROM {{ source('sdp_pipeline','YOUR_USERNAME_gold_eurex_product_performance') }}
 ```
 
 # 2) Upload the sample dataset to your volume

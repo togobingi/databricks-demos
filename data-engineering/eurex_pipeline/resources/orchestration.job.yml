@@ -2,6 +2,11 @@ resources:
   jobs:
     End_to_End_Workflow:
       name: End-to-End Workflow
+      parameters:
+        - name: catalog
+          default: ${var.catalog}
+        - name: schema
+          default: ${var.schema}
       tasks:
         - task_key: Eurex_ETL_Pipeline
           pipeline_task:
@@ -13,7 +18,7 @@ resources:
           dbt_task:
             project_directory: ../eurex_dbt/
             commands:
-              - dbt build
+              - "dbt run --vars '{\"catalog\": \"{{job.parameters.catalog}}\", \"schema\": \"{{job.parameters.schema}}\"}'"
             warehouse_id: ${var.warehouse_id}
             catalog: ${var.catalog}
             schema: ${var.schema}

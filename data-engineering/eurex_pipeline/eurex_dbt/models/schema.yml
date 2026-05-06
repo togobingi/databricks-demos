@@ -4,10 +4,10 @@ version: 2
 #### SOURCES #####
 sources:
   - name: sdp_pipeline # source name
-    database: fevm_gcp_billing # Unity Catalog catalog name
-    schema: default # Unity Catalog schema name.
+    database: '{{ var("catalog") }}' # Unity Catalog catalog name
+    schema: '{{ var("schema") }}' # Unity Catalog schema name.
     tables:
-      - name: gold_eurex_product_performance # Actual table name from UC
+      - name: YOUR_USERNAME_gold_eurex_product_performance # Actual table name from UC
 
 models:
   - name: gold_eurex_top_movers

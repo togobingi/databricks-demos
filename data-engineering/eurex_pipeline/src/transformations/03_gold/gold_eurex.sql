@@ -1,5 +1,5 @@
 -- Gold Layer: Daily aggregates by category and sub-category
-CREATE OR REFRESH MATERIALIZED VIEW gold_eurex_category_summary
+CREATE OR REFRESH MATERIALIZED VIEW  ${user_name}_gold_eurex_category_summary
 COMMENT 'Daily aggregates by category and sub-category.'
 AS
 SELECT
@@ -13,7 +13,7 @@ SELECT
   SUM(open_interest_eur_prev_day) AS total_open_interest_eur,
   COUNT(DISTINCT product_code) AS product_count,
   AVG(pc_ratio) AS avg_pc_ratio
-FROM silver_eurex_daily_trading
+FROM  ${user_name}_silver_eurex_daily_trading
 GROUP BY report_date, category, sub_category;
 
 

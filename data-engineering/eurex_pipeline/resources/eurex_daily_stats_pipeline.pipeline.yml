@@ -10,13 +10,10 @@ resources:
         "catalog": ${var.catalog}
         "schema": ${var.schema}
         "volume": ${var.volume}
+        "user_name": ${var.user_name}
 
       libraries:
         - glob:
             include: ../src/transformations/**
-        
-      environment:
-        dependencies:
-          - xlrd>=2.0.1
       root_path: ../src
       serverless: true
