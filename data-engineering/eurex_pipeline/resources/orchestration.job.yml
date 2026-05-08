@@ -7,6 +7,8 @@ resources:
           default: ${var.catalog}
         - name: schema
           default: ${var.schema}
+        - name: user_name
+          default: ${var.user_name}
       tasks:
         - task_key: Eurex_ETL_Pipeline
           pipeline_task:
@@ -18,7 +20,7 @@ resources:
           dbt_task:
             project_directory: ../eurex_dbt/
             commands:
-              - "dbt run --vars '{\"catalog\": \"{{job.parameters.catalog}}\", \"schema\": \"{{job.parameters.schema}}\"}'"
+              - "dbt run --vars '{\"catalog\": \"{{job.parameters.catalog}}\", \"schema\": \"{{job.parameters.schema}}\", \"user_name\": \"{{job.parameters.user_name}}\"}'"
             warehouse_id: ${var.warehouse_id}
             catalog: ${var.catalog}
             schema: ${var.schema}

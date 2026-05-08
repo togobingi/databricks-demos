@@ -35,7 +35,7 @@ targets:
     variables:
       catalog: catalog_name # update your caralog name
       schema: schema_name # update your schema name
-      volume: valume_name # update your volume name
+      volume: volume_name # update your volume name
       user_name: ${workspace.current_user.short_name}
   prod:
     mode: production

@@ -3,3 +3,4 @@ eurex_pipeline/.vscode/__builtins__.pyi
 eurex_pipeline/.vscode/extensions.json
 eurex_pipeline/.vscode/settings.json
 eurex_pipeline/logs/dbt.log
+data-engineering/eurex_pipeline/logs/dbt.log
