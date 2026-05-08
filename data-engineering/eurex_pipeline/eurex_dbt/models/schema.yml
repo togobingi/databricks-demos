@@ -7,7 +7,8 @@ sources:
     database: '{{ var("catalog") }}' # Unity Catalog catalog name
     schema: '{{ var("schema") }}' # Unity Catalog schema name.
     tables:
-      - name: YOUR_USERNAME_gold_eurex_product_performance # Actual table name from UC
+      - name: gold_eurex_product_performance
+        identifier: '{{ var("user_name") }}_gold_eurex_product_performance'
 
 models:
   - name: gold_eurex_top_movers

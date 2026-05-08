@@ -1,4 +1,6 @@
 
+{{ config(alias='gold_eurex_top_movers') }}
+
 -- Gold Layer: Top 20 products per day by daily volume EUR
 
 SELECT
@@ -14,6 +16,6 @@ FROM (
   SELECT
     *,
     ROW_NUMBER() OVER (PARTITION BY report_date ORDER BY daily_volume_eur DESC) AS volume_rank
-  FROM {{ source('sdp_pipeline','YOUR_USERNAME_gold_eurex_product_performance') }}
+  FROM {{ source('sdp_pipeline', 'gold_eurex_product_performance') }}
 )
 WHERE volume_rank <= 20;
