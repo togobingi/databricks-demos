@@ -41,7 +41,7 @@ targets:
     mode: production
     workspace:
       host: https://WORKSPACE-ID.databricks.com
-      # We explicitly deploy to /Workspace/Users/tobi.wole@databricks.com to make sure we only have a single copy.
+      # We explicitly deploy to /Workspace/Users/username@example.com to make sure we only have a single copy.
       root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
     variables:
       catalog: main
