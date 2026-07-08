@@ -1,6 +1,6 @@
 # Clone repo
 - Log in to your Databricks Free Edition workspace
-- Clone this repo: https://github.com/togobingi/databricks-demos/tree/main/databricks-apps/mcp-ai-dev-kit 
+- Clone this repo: https://github.com/togobingi/databricks-demos/
 - Navigate to the “databricks-apps/mcp-ai-dev-kit” folder
   - Run all cells in this file: add_skills_from_ai_dev_kit (this installs all the Databricks skills in your workspace)
 - Now create a new Databricks App
